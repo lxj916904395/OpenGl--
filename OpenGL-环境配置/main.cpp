@@ -4,11 +4,18 @@
 //
 //  Created by zhongding on 2018/11/27.
 //
-
+/*
+ `#include<GLShaderManager.h>` 移入了GLTool 着色器管理器（shader Mananger）类。没有着色器，我们就不能在OpenGL（核心框架）进行着色。着色器管理器不仅允许我们创建并管理着色器，还提供一组“存储着色器”，他们能够进行一些初步䄦基本的渲染操作。
+ */
 #include "GLShaderManager.h"
-
+/*
+ `#include<GLTools.h>`  GLTool.h头文件包含了大部分GLTool中类似C语言的独立函数
+ */
 #include "GLTools.h"
-
+/*
+ 在Mac 系统下，`#include<glut/glut.h>`
+ 在Windows 和 Linux上，我们使用freeglut的静态库版本并且需要添加一个宏
+ */
 #include <glut/glut.h>
 
 //简单的批次容器，是GLTools的一个简单的容器类。
@@ -151,7 +158,7 @@ int main(int argc,char* argv[])
      2）包含OpenGL 渲染的回调函数
      */
     //注册重塑函数
-    glutReshapeFunc(changeSize);
+    glutReshapeFunc(ChangeSize);
     //注册显示函数
     glutDisplayFunc(RenderScene);
     
@@ -168,7 +175,7 @@ int main(int argc,char* argv[])
     }
     
     //设置我们的渲染环境
-    setupRC();
+    SetupRC();
     
     glutMainLoop();
     
